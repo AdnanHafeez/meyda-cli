@@ -24,10 +24,11 @@ ChunkStream.prototype._transform = function (obj, encoding, callback) {
   } catch(err) {
     return callback(err);
   }
-
+  // TODO handle input stream closing case
   callback();
 };
 
+/* // Earlier implementation that might still be useful
 function(stream, bitDepth, bufferSize, extractorStream) {
   stream.on('readable',() => {
     if (buffer.length === bufferSize) {
@@ -45,3 +46,4 @@ function(stream, bitDepth, bufferSize, extractorStream) {
     }
   });
 };
+*/
