@@ -1,5 +1,5 @@
 # The MIT License (MIT)
-**Copyright &copy; &lt;2016> &lt;Hugh Rawlinson>**
+**Copyright &copy; 2016 Hugh Rawlinson**
 
 * * *
 
