@@ -1,0 +1,29 @@
+{
+  "name": "meyda-cli",
+  "version": "1.0.0",
+  "description": "A cli for audio feature extraction",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/hughrawlinson/meyda-cli"
+  },
+  "keywords": [
+    "audio",
+    "signal",
+    "feature"
+  ],
+  "author": "Hugh Rawlinson <hughr2005@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "meyda": "^3.1.1",
+    "wav": "^1.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "testdouble": "^1.7.0"
+  }
+}
