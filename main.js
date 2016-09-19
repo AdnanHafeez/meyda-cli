@@ -16,7 +16,8 @@ module.exports = function main(filename,
     return accumulator;
   }, []);
 
-  if (invalidFeatures.length >= 0) {
+
+  if (invalidFeatures.length > 0) {
     throw {
       name: 'Invalid Features',
       message: `Invalid feature(s) ${invalidFeatures.toString()}`
@@ -24,21 +25,13 @@ module.exports = function main(filename,
   }
 
   // TODO validate windowing function
-  const stream = () => {
-    if (validWavFile(filename)) {
-      return fs.createReadStream(filename);
-    }
-    return process.stdin;
-  }
-  
+  // TODO validate buffer size
+ 
   const extract = (() => {
     meyda.bufferSize = bufferSize;
     meyda.windowingFunction = windowingFunction;
     return (chunk) => meyda.extract(features, chunk);
   })();
   
-  const chunkStream = new ChunkStream(extract, bufferSize);
-  
-  stream.pipe(chunkStream);
-  chunkStream.pipe(process.stdout);
+  return extract;
 }

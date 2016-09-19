@@ -5,5 +5,9 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
-  }
+  },
+  "globals": [
+    "console",
+    "Object"
+  ]
 }
