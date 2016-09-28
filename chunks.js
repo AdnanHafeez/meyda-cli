@@ -35,22 +35,3 @@ ChunkStream.prototype._transform = function (obj, encoding, callback) {
 
 module.exports = ChunkStream;
 
-/* // Earlier implementation that might still be useful
-function(stream, bitDepth, bufferSize, extractorStream) {
-  stream.on('readable',() => {
-    if (buffer.length === bufferSize) {
-      extractorStream.write(new Float32Array(buffer));
-      buffer = [];
-    }
-  });
-  stream.on('finish',() => {
-    if (buffer.length > 0) {
-      extractorStream.write(new Float32Array(
-        buffer.concat(
-          zeroes(bufferSize - buffer.length)
-        )
-      ));
-    }
-  });
-};
-*/

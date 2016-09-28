@@ -49,7 +49,7 @@
         return process.stdin;
       }
     })();
-   
+
     const extract = main(program.file,
         program.features,
         program.windowingFunction,
@@ -58,7 +58,7 @@
     // TODO pass input through the wav stream encoder
     const chunkStream = new ChunkStream(extract, program.bufferSize);
     const wavReader = new wav.Reader();
-  
+
     stream.pipe(wavReader);
     wavReader.on('format',() => {
       wavReader.pipe(chunkStream);

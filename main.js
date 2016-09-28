@@ -2,36 +2,20 @@
 
 const meyda = require('meyda');
 const fs = require('fs');
+const validation = require('./validation');
 
 module.exports = function main(filename,
                                features = meyda.featureExtractors,
-                               windowingFunction='hanning',
+                               windowingFunction = 'hanning',
                                bufferSize = 1024){
 
-  // Get a list of the features that have been asked for that aren't supported
-  const invalidFeatures = features.reduce((accumulator,feature) => {
-    if (Object.keys(meyda.featureExtractors).indexOf(feature) < 0) {
-      return accumulator.concat([feature]);
-    }
-    return accumulator;
-  }, []);
+  validation.validate(features, windowingFunction, bufferSize);
 
-
-  if (invalidFeatures.length > 0) {
-    throw {
-      name: 'Invalid Features',
-      message: `Invalid feature(s) ${invalidFeatures.toString()}`
-    };
-  }
-
-  // TODO validate windowing function
-  // TODO validate buffer size
- 
   const extract = (() => {
     meyda.bufferSize = bufferSize;
     meyda.windowingFunction = windowingFunction;
     return (chunk) => meyda.extract(features, chunk);
   })();
-  
+
   return extract;
 }
