@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "ava": "^0.18.0",
-    "testdouble": "^1.7.0"
+    "testdouble": "^2.0.1"
   }
 }
