@@ -23,7 +23,7 @@
     "wav": "^1.0.1"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.0",
     "testdouble": "^1.7.0"
   }
 }
